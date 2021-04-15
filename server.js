@@ -1,7 +1,12 @@
 const express = require('express')
+const cors = require('cors')
+const path = require('path')
 const db = require('./database/db.js')
 const port = process.env.PORT || 5000
 const app = express()
+
+app.use(cors())
+app.use(express.static('public'))
 
 app.get('/api/users', (req, res) => {
   const sql = 'SELECT * FROM users'
@@ -57,8 +62,8 @@ app.get('/api/users_statistic/:id', (req, res) => {
   })
 })
 
-app.get('/', (req, res) => {
-  res.send('Hello world!')
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 
 app.listen(port, () => {
