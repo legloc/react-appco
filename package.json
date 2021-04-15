@@ -1,0 +1,23 @@
+{
+  "name": "react-appco",
+  "version": "1.0.0",
+  "description": "Brainstorming for desired perfect Usability",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legloc/react-appco.git"
+  },
+  "author": "aliiev.akhtem@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/legloc/react-appco/issues"
+  },
+  "homepage": "https://github.com/legloc/react-appco#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
+  }
+}
