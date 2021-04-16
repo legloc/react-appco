@@ -1,8 +1,9 @@
+import MainPage from './pages/MainPage'
 import './App.scss'
 
 const App = () => (
   <div>
-    <h1>Hello world</h1>
+    <MainPage />
   </div>
 )
 

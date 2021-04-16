@@ -1,0 +1,154 @@
+$primary-color: #3A80BA;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+  .col {
+    width: 100%;
+  }
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.btn {
+  display: inline-block;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1em 2em;
+  font-size: 1em;
+  font-weight: 400;
+  text-align: center;
+  color: $primary-color;
+}
+
+.section {
+  padding: 1.5em 8em;
+}
+
+.section-header {
+  background: url('./resources/header-bg.svg') top no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  color: #fff;
+
+  .header-logo {
+    font-size: 2.5em;
+    font-weight: 400;
+  }
+
+  .header-mobile-wrapper {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background: #000;
+      border-radius: 22px;
+      left: 0;
+      bottom: 0;
+      opacity: .3;
+      filter: blur(22px);
+    }
+
+    .header-mobile-preview {
+      position: relative;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2em;
+      height: 560px;
+    }
+  }
+
+  .promo {
+    margin-top: 3em;
+
+    .promo-title {
+      font-size: 3em;
+      font-weight: 400;
+    }
+
+    .promo-description {
+      margin: 1.5em 0;
+      font-size: 1.25em;
+    }
+  }
+}
+
+@media (max-width: 998px) {
+  body {
+    font-size: 12px;
+  }
+
+  .section {
+    padding: 2em 4em;
+  }
+
+  .section-header {
+    .header-mobile-wrapper {
+      .header-mobile-preview {
+        height: 460px;
+      }
+    }
+  }
+}
+
+@media (max-width: 610px) {
+  .row {
+    flex-direction: column;
+
+    .col {
+      margin-bottom: 2em;
+    }
+  }
+
+  .btn {
+    display: block;
+  }
+
+  .section-header {
+    .header-mobile-wrapper {
+      .header-mobile-preview {
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 398px) {
+  .section {
+    padding: 1.5em 2em;
+  }
+
+  .section-header {
+    .header-mobile-wrapper {
+      .header-mobile-preview {
+        width: 100%;
+      }
+    }
+  }
+}
