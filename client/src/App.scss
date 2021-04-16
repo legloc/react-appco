@@ -30,20 +30,45 @@ body {
   }
 }
 
-.fw-700 {
-  font-weight: 700;
-}
+.fs-1 { font-size: 1em;  }
+.fs-2 { font-size: 2em;  }
+.fw-700 { font-weight: 700; }
+.ta-center { text-align: center;  }
+.ta-left { text-align: left;  }
+.ta-right { text-align: right;  }
 
 .btn {
   display: inline-block;
   background: $background-color;
+  border: none;
   border-radius: 8px;
   padding: 1em 2em;
+  font-family: inherit;
   font-size: 1em;
   font-weight: 400;
   text-align: center;
   color: $primary-color;
   outline: none;
+  cursor: pointer;
+
+  &-primary {
+    background: $primary-color;
+    color: $background-color;
+  }
+}
+
+.form-control {
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 1em 1.25em;
+  color: $secondary-text-color;
+  outline: none;
+
+  &::placeholder {
+    color: $secondary-text-color;
+  }
 }
 
 .section {
@@ -119,7 +144,7 @@ body {
 
   .about-card {
     background: $background-color;
-    border-radius: 2em;
+    border-radius: 32px;
     padding: 3em 2em;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
 
@@ -145,6 +170,35 @@ body {
   }
 }
 
+.section-footer {
+  background: url('./resources/footer-bg.svg') top no-repeat;
+  background-size: cover;
+  width: 100%;
+  color: $background-color;
+
+  .footer-form {
+    background: $background-color;
+    display: flex;
+    border: 1px #F1F1F1 solid;
+    border-radius: 10px;
+    width: 580px;
+    margin: 0 auto 1em;
+    
+
+    .form-control {
+      flex-grow: 1;
+    }
+
+    .btn {
+      margin: 4px;
+    }
+  }
+
+  .row {
+    align-items: center;
+  }
+}
+
 @media (max-width: 998px) {
   body {
     font-size: 12px;
@@ -163,7 +217,7 @@ body {
   }
 }
 
-@media (max-width: 610px) {
+@media (max-width: 694px) {
   .row {
     flex-direction: column;
 
@@ -183,6 +237,28 @@ body {
       }
     }
   }
+
+  .section-about {
+    .about-card {
+      &:first-child, &:last-child {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .section-footer {
+    .footer-form {
+      width: 100%;
+    }
+
+    .row {
+      .col {
+        text-align: center;
+        margin: 1em 0 0;
+      }
+    }
+  }
 }
 
 @media (max-width: 398px) {
@@ -198,12 +274,9 @@ body {
     }
   }
 
-  .section-about {
-    .about-card {
-      &:first-child, &:last-child {
-        margin-right: 0;
-        margin-left: 0;
-      }
+  .section-footer {
+    .footer-form {
+      flex-direction: column;
     }
   }
 }
