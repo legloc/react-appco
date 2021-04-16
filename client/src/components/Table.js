@@ -1,87 +1,4 @@
-const users = [{
-  id: '1',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '2',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '3',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '4',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '5',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '6',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '7',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '8',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-}, {
-  id: '9',
-  firstName: 'Samuel',
-  lastName: 'Frost',
-  email: 'sirious.sam@gmail.com',
-  gender: 'male',
-  ipAddress: '192.168.32.05',
-  totalClicks: '290 883',
-  totalPageViews: '290 883'
-},]
-
-const Table = () => (
+const Table = ({ users }) => (
   <div style={{ overflowX: 'auto' }}>
     <table className="table">
       <thead>
@@ -100,13 +17,13 @@ const Table = () => (
         { users.map(user => (
           <tr key={ user.id }>
             <td>{ user.id }</td>
-            <td>{ user.firstName }</td>
-            <td>{ user.lastName }</td>
+            <td>{ user.first_name }</td>
+            <td>{ user.last_name }</td>
             <td>{ user.email }</td>
             <td>{ user.gender }</td>
-            <td>{ user.ipAddress }</td>
-            <td>{ user.totalClicks }</td>
-            <td>{ user.totalPageViews }</td>
+            <td>{ user.ip_address }</td>
+            <td>{ user.total_clicks }</td>
+            <td>{ user.total_page_views }</td>
           </tr>
         )) }
       </tbody>

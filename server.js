@@ -9,7 +9,21 @@ app.use(cors())
 app.use(express.static('public'))
 
 app.get('/api/users', (req, res) => {
-  const sql = 'SELECT * FROM users'
+  const sql = `
+    SELECT id, 
+      first_name, 
+      last_name, 
+      email, 
+      gender, 
+      ip_address, 
+      SUM(users_statistic.clicks) as total_clicks, 
+      SUM(users_statistic.page_views) as total_page_views
+    FROM users
+    INNER JOIN users_statistic
+    ON users.id = users_statistic.user_id
+    GROUP BY users.id
+    LIMIT 50
+  `
   
   db.all(sql, [], (err, data) => {
     if (err) {
@@ -17,7 +31,7 @@ app.get('/api/users', (req, res) => {
       return
     }
     
-    res.json({ 'data': data })
+    res.send(data)
   })
 })
 
