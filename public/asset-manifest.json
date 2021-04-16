@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.8fe2b076.chunk.css",
-    "main.js": "/static/js/main.6fc955b8.chunk.js",
-    "main.js.map": "/static/js/main.6fc955b8.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0454013e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0454013e.js.map",
-    "static/js/2.fcbfc327.chunk.js": "/static/js/2.fcbfc327.chunk.js",
-    "static/js/2.fcbfc327.chunk.js.map": "/static/js/2.fcbfc327.chunk.js.map",
-    "static/js/3.1b9c0cc5.chunk.js": "/static/js/3.1b9c0cc5.chunk.js",
-    "static/js/3.1b9c0cc5.chunk.js.map": "/static/js/3.1b9c0cc5.chunk.js.map",
+    "main.css": "/static/css/main.775d063e.chunk.css",
+    "main.js": "/static/js/main.04e55652.chunk.js",
+    "main.js.map": "/static/js/main.04e55652.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09f1071b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09f1071b.js.map",
+    "static/js/2.216b7bdb.chunk.js": "/static/js/2.216b7bdb.chunk.js",
+    "static/js/2.216b7bdb.chunk.js.map": "/static/js/2.216b7bdb.chunk.js.map",
+    "static/js/3.78bd56f2.chunk.js": "/static/js/3.78bd56f2.chunk.js",
+    "static/js/3.78bd56f2.chunk.js.map": "/static/js/3.78bd56f2.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.8fe2b076.chunk.css.map": "/static/css/main.8fe2b076.chunk.css.map",
-    "static/js/2.fcbfc327.chunk.js.LICENSE.txt": "/static/js/2.fcbfc327.chunk.js.LICENSE.txt",
-    "static/media/clean-design-icon.f33b4d08.svg": "/static/media/clean-design-icon.f33b4d08.svg",
+    "static/css/main.775d063e.chunk.css.map": "/static/css/main.775d063e.chunk.css.map",
+    "static/js/2.216b7bdb.chunk.js.LICENSE.txt": "/static/js/2.216b7bdb.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/static/media/header-bg.78e33f52.svg",
+    "static/media/clean-design-icon.f33b4d08.svg": "/static/media/clean-design-icon.f33b4d08.svg",
     "static/media/mobile-preview.703406bb.png": "/static/media/mobile-preview.703406bb.png",
     "static/media/retina-ready-icon.4aa8b18b.svg": "/static/media/retina-ready-icon.4aa8b18b.svg",
     "static/media/secure-data-icon.d7216fb1.svg": "/static/media/secure-data-icon.d7216fb1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0454013e.js",
-    "static/js/2.fcbfc327.chunk.js",
-    "static/css/main.8fe2b076.chunk.css",
-    "static/js/main.6fc955b8.chunk.js"
+    "static/js/runtime-main.09f1071b.js",
+    "static/js/2.216b7bdb.chunk.js",
+    "static/css/main.775d063e.chunk.css",
+    "static/js/main.04e55652.chunk.js"
   ]
 }

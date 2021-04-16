@@ -1,10 +1,26 @@
+import { Link } from 'react-router-dom'
+import Card from '../components/Card'
 import MobilePreviewImage from '../resources/mobile-preview.png'
 import CleanDesignIcon from '../resources/clean-design-icon.svg'
 import SecureDataIcon from '../resources/secure-data-icon.svg'
 import RetinaReadyIcon from '../resources/retina-ready-icon.svg'
 
+const cards = [{
+  title: 'Clean Design',
+  description: 'Increase sales by showing true dynamics of your website.',
+  icon: CleanDesignIcon
+}, {
+  title: 'Secure Data',
+  description: 'Build your online store’s trust using Social Proof & Urgency.',
+  icon: SecureDataIcon
+}, {
+  title: 'Retina Ready',
+  description: 'Realize importance of social proof in customer’s purchase decision.',
+  icon: RetinaReadyIcon
+}]
+
 const MainPage = () => (
-  <div className="wrapper">
+  <div>
     <section className="section section-header">
       <h1 className="header-logo">AppCo</h1>
       <div className="row">
@@ -13,7 +29,7 @@ const MainPage = () => (
             <span className="fw-700">Brainstorming</span> for desired perfect Usability
           </h2>
           <p className="promo-description">Our design projects are fresh and simple and will benefit your business greatly. Learn more about our work!</p>
-          <a className="btn" href="/">View Stats</a>
+          <Link className="btn" to="/stats">View Stats</Link>
         </div>
         <div className="col">
           <div className="header-mobile-wrapper">
@@ -31,21 +47,11 @@ const MainPage = () => (
       </h2>
       <p className="about-description">Our design projects are fresh and simple and will benefit your business greatly. Learn more about our work!</p>
       <div className="row">
-        <div className="col about-card">
-          <img src={ CleanDesignIcon } alt="Clean Design" />
-          <h3 className="card-title">Clean Design</h3>
-          <p className="card-description">Increase sales by showing true dynamics of your website.</p>
-        </div>
-        <div className="col about-card">
-          <img src={ SecureDataIcon } alt="Secure Data" />
-          <h3 className="card-title">Secure Data</h3>
-          <p className="card-description">Build your online store’s trust using Social Proof & Urgency.</p>
-        </div>
-        <div className="col about-card">
-          <img src={ RetinaReadyIcon } alt="Retina Ready" />
-          <h3 className="card-title">Retina Ready</h3>
-          <p className="card-description">Realize importance of social proof in customer’s purchase decision.</p>
-        </div>
+        
+        { cards.map(card => (
+          <Card key={ card.title } title={ card.title } description={ card.description } icon={ card.icon } />
+        )) }
+        
       </div>
     </section>
 
