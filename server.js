@@ -19,8 +19,7 @@ app.get('/api/users/:offset', (req, res) => {
       SUM(users_statistic.clicks) as total_clicks, 
       SUM(users_statistic.page_views) as total_page_views
     FROM users
-    INNER JOIN users_statistic
-    ON users.id = users_statistic.user_id
+    INNER JOIN users_statistic ON users.id = users_statistic.user_id
     GROUP BY users.id
     LIMIT 50
     OFFSET ?
@@ -37,8 +36,19 @@ app.get('/api/users/:offset', (req, res) => {
   })
 })
 
-app.get('/api/users/:id', (req, res) => {
-  const sql = 'SELECT * FROM users WHERE id = ?'
+app.get('/api/user/:id', (req, res) => {
+  const sql = `
+    SELECT 
+      user_id, 
+      users.first_name,
+      users.last_name,
+      date,
+      clicks,
+      page_views
+    FROM users_statistic
+    INNER JOIN users ON users_statistic.user_id = users.id
+    WHERE user_id = ?
+  `
   const params = [ req.params.id ]
 
   db.all(sql, params, (err, data) => {
@@ -47,36 +57,10 @@ app.get('/api/users/:id', (req, res) => {
       return
     }
 
-    res.json({ 'data': data })
+    res.send(data)
   })
 })
 
-app.get('/api/users_statistic', (req, res) => {
-  const sql = 'SELECT * FROM users_statistic'
-  
-  db.all(sql, [], (err, data) => {
-    if (err) {
-      res.status(400).json({ 'Error': err.message })
-      return
-    }
-
-    res.json({ 'data': data })
-  })
-})
-
-app.get('/api/users_statistic/:id', (req, res) => {
-  const sql = 'SELECT * FROM users_statistic WHERE user_id = ?'
-  const params = [ req.params.id ]
-
-  db.all(sql, params, (err, data) => {
-    if (err) {
-      res.status(400).json({ 'Error': err.message })
-      return
-    }
-
-    res.json({ 'data': data })
-  })
-})
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))

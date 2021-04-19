@@ -63,6 +63,7 @@
 
 .breadcrumb {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0 0 1em;
   padding: 0;
@@ -70,6 +71,7 @@
 
   .breadcrumb-item {
     margin-left: 1.4em;
+    height: 1.5em;
     
     &:first-child {
       margin-left: 0;
@@ -118,6 +120,7 @@
   tbody {
     tr {
       background: $first-table-color;
+      cursor: pointer;
 
       &:nth-child(2n+1) {
         background: $second-table-color;
@@ -187,4 +190,8 @@
       stroke: $primary-color;
     }
   }
+}
+
+.chart-wrapper {
+  height: 60vh;
 }
