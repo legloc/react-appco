@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(express.static('public'))
 
-app.get('/api/users', (req, res) => {
+app.get('/api/users/:offset', (req, res) => {
   const sql = `
     SELECT id, 
       first_name, 
@@ -23,9 +23,11 @@ app.get('/api/users', (req, res) => {
     ON users.id = users_statistic.user_id
     GROUP BY users.id
     LIMIT 50
+    OFFSET ?
   `
-  
-  db.all(sql, [], (err, data) => {
+  const params = [ req.params.offset ]
+
+  db.all(sql, params, (err, data) => {
     if (err) {
       res.status(400).json({ 'Error': err.message })
       return

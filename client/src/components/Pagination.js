@@ -1,16 +1,25 @@
+import ReactPaginate from 'react-paginate'
 import ChevronLeftIcon from '../components/ChevronLeftIcon'
 import ChevronRightIcon from '../components/ChevronRightIcon'
 
-const Pagination = () => (
-  <div className="pagination">
-    <a className="pagination-arrow" href="/"><ChevronLeftIcon /></a>
-    <a className="pagination-btn active" href="/">1</a>
-    <a className="pagination-btn" href="/">2</a>
-    <a className="pagination-btn" href="/">3</a>
-    <a className="pagination-btn" href="/">4</a>
-    <a className="pagination-btn" href="/">5</a>
-    <a className="pagination-arrow active" href="/"><ChevronRightIcon /></a>
-  </div>
-)
+const Pagination = ({ pageCount, onPageChange }) => {
+  return (
+    <ReactPaginate
+      pageCount={ pageCount }
+      pageRangeDisplayed={ 4 }
+      marginPagesDisplayed={ 0 }
+      containerClassName="pagination"
+      pageLinkClassName="pagination-btn"
+      activeLinkClassName="active"
+      previousClassName="pagination-arrow"
+      previousLabel={ <ChevronLeftIcon /> }
+      nextClassName="pagination-arrow"
+      nextLabel={ <ChevronRightIcon /> }
+      disabledClassName="disabled"
+      breakLabel=""
+      onPageChange={ page => onPageChange(page.selected) } />
+  )
+}
+
 
 export default Pagination

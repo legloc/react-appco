@@ -8,21 +8,21 @@ import Table from '../components/Table'
 import Pagination from '../components/Pagination'
 import Spinner from '../components/Spinner'
 
-const breadcrumbLinks = [{
-  title: 'Main page',
-  url: '/'
-}, {
-  title: 'User statistics',
-  url: '/stats'
-}]
-
-const StatsPage = () => {
+const StatsPage = (props) => {
   const [isLoading, setLoading] = useState(false)
   const [users, setUsers] = useState([])
+  const limit = 50
+  const breadcrumbLinks = [{
+    title: 'Main page',
+    url: '/'
+  }, {
+    title: 'User statistics',
+    url: '/stats'
+  }]
 
-  useEffect(() => {
+  const apiRequest = (offset = 0) => {
     setLoading(true)
-    axios.get('/api/users')
+    axios.get(`/api/users/${ offset }`)
       .then(res => {
         setUsers(res.data)
       })
@@ -32,6 +32,10 @@ const StatsPage = () => {
       .then(() => {
         setLoading(false)
       })
+  }
+
+  useEffect(() => {
+    apiRequest()
   }, [])
 
   return (
@@ -42,7 +46,7 @@ const StatsPage = () => {
           <Breadcrumb links={ breadcrumbLinks } />
           <h2 className="section-title">Users statistics</h2>
           { isLoading ? <Spinner /> : <Table users={ users } /> }
-          <Pagination />
+          <Pagination pageCount={ 1000 / limit } onPageChange={ page => apiRequest(page * limit) } />
         </section>
       </div>
       <Footer />

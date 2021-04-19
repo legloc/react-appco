@@ -6,12 +6,8 @@ import './App.scss'
 const App = () => (
   <Router>
     <Switch>
-      <Route path="/stats">
-        <StatsPage />
-      </Route>
-      <Route path="/">
-        <MainPage />
-      </Route>
+      <Route path="/stats" component={ StatsPage } />
+      <Route path="/" component={ MainPage } />
     </Switch>
   </Router>
 )
