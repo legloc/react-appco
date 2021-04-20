@@ -22,11 +22,10 @@ app.get('/api/users/:offset', (req, res) => {
     INNER JOIN users_statistic ON users.id = users_statistic.user_id
     GROUP BY users.id
     LIMIT 50
-    OFFSET ?
+    OFFSET ${ req.params.offset }
   `
-  const params = [ req.params.offset ]
 
-  db.all(sql, params, (err, data) => {
+  db.all(sql, [], (err, data) => {
     if (err) {
       res.status(400).json({ 'Error': err.message })
       return
@@ -36,7 +35,7 @@ app.get('/api/users/:offset', (req, res) => {
   })
 })
 
-app.get('/api/user/:id', (req, res) => {
+app.get('/api/user/:id/:from?/:to?', (req, res) => {
   const sql = `
     SELECT 
       user_id, 
@@ -47,16 +46,16 @@ app.get('/api/user/:id', (req, res) => {
       page_views
     FROM users_statistic
     INNER JOIN users ON users_statistic.user_id = users.id
-    WHERE user_id = ?
+    WHERE user_id = ${ req.params.id }
+    ${ req.params.from !== undefined ? `AND date >= "${ req.params.from }"` : '' }
+    ${ req.params.to !== undefined ? `AND date <= "${ req.params.to }"` : '' }
   `
-  const params = [ req.params.id ]
 
-  db.all(sql, params, (err, data) => {
+  db.all(sql, [], (err, data) => {
     if (err) {
       res.status(400).json({ 'Error': err.message })
       return
     }
-
     res.send(data)
   })
 })

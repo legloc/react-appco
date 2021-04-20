@@ -10,6 +10,7 @@ $secondary-text-color: #7E7E7E;
 @import "./styles/custom-components-styles";
 @import "./styles/main-page-styles";
 @import "./styles/stats-page-styles";
+@import "./styles/user-page-styles";
 @import "./styles/utilities";
 
 
@@ -59,12 +60,12 @@ body {
 }
 
 .wrapper {
-  // display: flex;
-  // flex-direction: column;
-  // min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
   .content {
-    // flex-grow: 1;
+    flex-grow: 1;
   }
 }
 

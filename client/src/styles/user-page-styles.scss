@@ -1,0 +1,19 @@
+.section-user-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;  
+
+  .dropdown-wrapper {
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

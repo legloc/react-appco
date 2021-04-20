@@ -1,12 +1,26 @@
 import { Line } from 'react-chartjs-2'
 import { defaults } from 'react-chartjs-2'
+import moment from 'moment'
 
-defaults.global.defaultColor = '#000';
 defaults.global.defaultFontFamily = 'Montserrat';
 
-const LineChart = ({ name, labels, data }) => {
+const LineChart = ({ name, labels, data, fromFilter = '', toFilter = '' }) => {
+  let filteredLabels = labels
+
+  if (fromFilter !== '')
+    filteredLabels = labels.filter(item => item >= fromFilter)
+
+  if (toFilter !== '')
+    filteredLabels = labels.filter(item => item <= toFilter)
+
+  if (fromFilter !== '' && toFilter !== '')
+    filteredLabels = labels.filter(item => item >= fromFilter && item <= toFilter)
+
+  if (fromFilter === '' && toFilter === '')
+    filteredLabels = labels.slice(Math.max(labels.length - 7, 1))
+
   const chartData = {
-    labels: labels,
+    labels: filteredLabels.map(label => moment(label).format('MMMM Do, YYYY')),
     datasets: [
       {
         label: name,

@@ -77,6 +77,21 @@
       display: none;
     }
   }
+
+  .section-user-header {
+    .section-title {
+      margin-bottom: 8px;
+    }
+
+    .dropdown-container {
+      width: 100%;
+
+      .dropdown-wrapper {
+        width: 100%;
+        min-width: 0
+      }
+    }
+  }
 }
 
 @media (max-width: 398px) {
